@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.proyectoinmobiliaria.ui.home.HomeFragment"
+
+        tools:layout="@layout/fragment_home" />
+
+
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Perfil.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Logout.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" >
+        <action
+            android:id="@+id/action_logoutFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/contratosFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Contratos.ContratosFragment"
+        android:label="fragment_contratos"
+        tools:layout="@layout/fragment_contratos" >
+        <action
+            android:id="@+id/action_contratosFragment_to_detalleContratoFragment"
+            app:destination="@id/detalleContratoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inmueblesFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Inmuebles.InmueblesFragment"
+        android:label="fragment_inmuebles"
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_inmueblesFragment_to_detalleInmuebleFragment"
+            app:destination="@id/detalleInmuebleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inquilinosFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Inquilinos.InquilinosFragment"
+        android:label="fragment_inquilinos"
+        tools:layout="@layout/fragment_inquilinos" >
+        <action
+            android:id="@+id/action_inquilinosFragment_to_detalleInquilinoFragment"
+            app:destination="@id/detalleInquilinoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Inmuebles.DetalleInmuebleFragment"
+        android:label="fragment_detalle_inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble" >
+        <action
+            android:id="@+id/action_detalleInmuebleFragment_to_inmueblesFragment"
+            app:destination="@id/inmueblesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleInquilinoFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Inquilinos.DetalleInquilinoFragment"
+        android:label="fragment_detalle_inquilino"
+        tools:layout="@layout/fragment_detalle_inquilino" >
+        <action
+            android:id="@+id/action_detalleInquilinoFragment_to_inquilinosFragment"
+            app:destination="@id/inquilinosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleContratoFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Contratos.DetalleContratoFragment"
+        android:label="fragment_detalle_contrato"
+        tools:layout="@layout/fragment_detalle_contrato" >
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_contratosFragment"
+            app:destination="@id/contratosFragment" />
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_pagosFragment"
+            app:destination="@id/pagosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagosFragment"
+        android:name="com.example.proyectoinmobiliaria.ui.Contratos.PagosFragment"
+        android:label="fragment_pagos"
+        tools:layout="@layout/fragment_pagos" >
+        <action
+            android:id="@+id/action_pagosFragment_to_detalleContratoFragment"
+            app:destination="@id/detalleContratoFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.proyectoinmobiliaria.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+</navigation>
