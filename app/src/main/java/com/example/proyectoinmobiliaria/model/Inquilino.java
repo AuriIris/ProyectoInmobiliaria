@@ -7,22 +7,16 @@ public class Inquilino implements Serializable {
     private long dni;
     private String nombre;
     private String apellido;
-    private String direccion;
-    private String email;
+    private String mail;
     private String telefono;
-    private String nombreGarante;
-    private String telefonoGarante;
 
     public Inquilino(int id, long dni, String nombre, String apellido, String direccion, String email, String telefono, String nombreGarante, String telefonoGarante) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.direccion = direccion;
-        this.email = email;
+        this.mail = email;
         this.telefono = telefono;
-        this.nombreGarante = nombreGarante;
-        this.telefonoGarante = telefonoGarante;
     }
 
     public int getId() {
@@ -41,24 +35,12 @@ public class Inquilino implements Serializable {
         return apellido;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
     public String getEmail() {
-        return email;
+        return mail;
     }
 
     public String getTelefono() {
         return telefono;
-    }
-
-    public String getNombreGarante() {
-        return nombreGarante;
-    }
-
-    public String getTelefonoGarante() {
-        return telefonoGarante;
     }
 
     @Override
@@ -68,11 +50,8 @@ public class Inquilino implements Serializable {
                 ", dni=" + dni +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", email='" + email + '\'' +
+                ", email='" + mail + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", nombreGarante='" + nombreGarante + '\'' +
-                ", telefonoGarante='" + telefonoGarante + '\'' +
                 '}';
     }
 }

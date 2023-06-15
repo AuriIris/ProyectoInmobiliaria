@@ -5,21 +5,21 @@ import java.io.Serializable;
 
 public class Propietario implements Serializable {
     private int id;
-    private long dni;
+    private String dni;
     private String nombre;
     private String apellido;
-    private String email;
-    private String contraseña;
+    private String mail;
+    private String clave;
     private String telefono;
     private int imagen;
 
-    public Propietario(int id, long dni, String nombre, String apellido, String email, String contraseña, String telefono, int imagen) {
+    public Propietario(int id, String dni, String nombre, String apellido, String mail, String clave, String telefono, int imagen) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
-        this.contraseña = contraseña;
+        this.mail = mail;
+        this.clave = clave;
         this.telefono = telefono;
         this.imagen = imagen;
     }
@@ -28,7 +28,7 @@ public class Propietario implements Serializable {
         return id;
     }
 
-    public long getDni() {
+    public String getDni() {
         return dni;
     }
 
@@ -41,11 +41,11 @@ public class Propietario implements Serializable {
     }
 
     public String getEmail() {
-        return email;
+        return mail;
     }
 
     public String getContraseña() {
-        return contraseña;
+        return clave;
     }
 
     public String getTelefono() {
@@ -56,7 +56,7 @@ public class Propietario implements Serializable {
         this.id = id;
     }
 
-    public void setDni(long dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -69,11 +69,11 @@ public class Propietario implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mail = email;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.clave = contraseña;
     }
 
     public void setTelefono(String telefono) {
@@ -95,8 +95,8 @@ public class Propietario implements Serializable {
                 ", dni=" + dni +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", email='" + email + '\'' +
-                ", contraseña='" + contraseña + '\'' +
+                ", email='" + mail + '\'' +
+                ", contraseña='" + clave + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", imagen=" + imagen +
                 '}';

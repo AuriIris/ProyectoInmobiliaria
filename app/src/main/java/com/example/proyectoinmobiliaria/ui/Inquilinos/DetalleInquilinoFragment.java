@@ -44,9 +44,6 @@ public class DetalleInquilinoFragment extends Fragment {
         tvDni = view.findViewById(R.id.tvDni);
         tvEmail = view.findViewById(R.id.tvEmail);
         tvTelefono = view.findViewById(R.id.tvTelefono);
-        tvGarante = view.findViewById(R.id.tvGarante);
-        tvTelefonoGarante = view.findViewById(R.id.tvTelefonoGarante);
-        ivImagen = view.findViewById(R.id.ivImagen);
 
         Bundle bundle = getArguments();
         try {
@@ -58,8 +55,6 @@ public class DetalleInquilinoFragment extends Fragment {
                 tvDni.setText(String.valueOf(inquilino.getDni()));
                 tvEmail.setText(inquilino.getEmail());
                 tvTelefono.setText(inquilino.getTelefono());
-                tvGarante.setText(inquilino.getNombreGarante());
-                tvTelefonoGarante.setText(inquilino.getTelefonoGarante());
             } catch (Exception e) {
                 e.printStackTrace();
             }

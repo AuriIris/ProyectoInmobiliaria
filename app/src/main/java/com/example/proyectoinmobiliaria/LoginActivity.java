@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements SensorEventListe
                 String password = binding.editTextPass.getText().toString();
                 viewModel.login(email, password);
             }        });
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+            sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager != null) {
             accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
             gyroscopeSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);

@@ -63,7 +63,7 @@ public class InquilinosAdapter extends RecyclerView.Adapter<InquilinosAdapter.Vi
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("inquilino", contrato.getInquilino());
+                bundle.putSerializable("inquilino", contrato.getInquilino1());
                 navController.navigate(R.id.action_inquilinosFragment_to_detalleInquilinoFragment, bundle);
             }
         });
@@ -87,7 +87,7 @@ public class InquilinosAdapter extends RecyclerView.Adapter<InquilinosAdapter.Vi
         }
 
         public void bind(Contrato contrato) {
-            Inmueble inmueble = contrato.getInmueble();
+            Inmueble inmueble = contrato.getInmueble1();
             direccionTextView.setText(inmueble.getDireccion());
             Picasso.get().load(inmueble.getImagenUrl()).into(fotoImageView);
         }

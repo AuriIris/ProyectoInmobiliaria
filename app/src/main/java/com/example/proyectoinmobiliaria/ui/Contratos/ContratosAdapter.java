@@ -57,6 +57,7 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Contrato contrato = contratos.get(position);
         holder.bind(contrato);
+        //holder.direccionTextView.setText(contrato.getInmueble().getDireccion());
         holder.btnVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +87,7 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
         }
 
         public void bind(Contrato contrato) {
-            Inmueble inmueble = contrato.getInmueble();
+            Inmueble inmueble = contrato.getInmueble1();
             direccionTextView.setText(inmueble.getDireccion());
             Picasso.get().load(inmueble.getImagenUrl()).into(fotoImageView);
         }

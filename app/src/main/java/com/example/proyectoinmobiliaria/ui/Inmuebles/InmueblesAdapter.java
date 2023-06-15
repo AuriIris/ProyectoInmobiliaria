@@ -12,14 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.proyectoinmobiliaria.R;
+import com.example.proyectoinmobiliaria.model.Contrato;
 import com.example.proyectoinmobiliaria.model.Inmueble;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class InmueblesAdapter extends RecyclerView.Adapter<InmueblesAdapter.ViewHolder> {
     private Context context;
-    private List<Inmueble> inmuebles;
+    private List<Contrato> inmuebles;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -31,7 +33,7 @@ public class InmueblesAdapter extends RecyclerView.Adapter<InmueblesAdapter.View
         this.listener = listener;
     }
 
-    public void setInmuebles(List<Inmueble> inmuebles) {
+    public void setInmuebles(List<Contrato> inmuebles) {
         this.inmuebles = inmuebles;
         notifyDataSetChanged();
     }
@@ -44,18 +46,22 @@ public class InmueblesAdapter extends RecyclerView.Adapter<InmueblesAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Inmueble inmueble = inmuebles.get(position);
-        holder.bind(inmueble);
+        Contrato contrato = inmuebles.get(position);
+        holder.bind(contrato);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onInmuebleClick(inmueble);
+                listener.onInmuebleClick(contrato.getInmueble1());
             }
         });
     }
+
     @Override
     public int getItemCount() {
-        return inmuebles.size();
+        if (inmuebles != null) {
+            return inmuebles.size();
+        }
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -70,10 +76,10 @@ public class InmueblesAdapter extends RecyclerView.Adapter<InmueblesAdapter.View
             ivImagen = itemView.findViewById(R.id.ivImagen);
         }
 
-        public void bind(Inmueble inmueble) {
-            tvDireccion.setText(inmueble.getDireccion());
-            tvPrecio.setText(String.valueOf(inmueble.getPrecio()));
-            Picasso.get().load(inmueble.getImagenUrl()).into(ivImagen);
+        public void bind(Contrato contrato) {
+            tvDireccion.setText(contrato.getInmueble1().getDireccion());
+            tvPrecio.setText(String.valueOf(contrato.getInmueble1().getPrecio()));
+            Picasso.get().load(contrato.getInmueble1().getImagenUrl()).into(ivImagen);
         }
     }
 }

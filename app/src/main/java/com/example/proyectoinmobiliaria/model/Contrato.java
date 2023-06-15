@@ -4,80 +4,81 @@ import java.io.Serializable;
 
 public class Contrato implements Serializable {
     private int id;
-    private String fechaInicio;
-    private String fechaFin;
+    private String fecDesde;
+    private String fecHasta;
     private double precio;
-    private Inquilino inquilino;
-    private Inmueble inmueble;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public void setInquilino(Inquilino inquilino) {
-        this.inquilino = inquilino;
-    }
-
-    public void setInmueble(Inmueble inmueble) {
-        this.inmueble = inmueble;
-    }
-
-    public Contrato(int id, String fechaInicio, String fechaFin, double precio, Inquilino inquilino, Inmueble inmueble) {
-        this.id = id;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.precio = precio;
-        this.inquilino = inquilino;
-        this.inmueble = inmueble;
-    }
+    private Inquilino inquilino1;
+    private Inmueble inmueble1;
 
     public int getId() {
         return id;
     }
 
-    public String getFechaInicio() {
-        return fechaInicio;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getFechaFin() {
-        return fechaFin;
+    public String getFecDesde() {
+        return fecDesde;
+    }
+
+    public void setFecDesde(String fecDesde) {
+        this.fecDesde = fecDesde;
+    }
+
+    public String getFecHasta() {
+        return fecHasta;
+    }
+
+    public void setFecHasta(String fecHasta) {
+        this.fecHasta = fecHasta;
     }
 
     public double getPrecio() {
         return precio;
     }
 
-    public Inquilino getInquilino() {
-        return inquilino;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public Inmueble getInmueble() {
-        return inmueble;
+    public Inquilino getInquilino1() {
+        return inquilino1;
+    }
+
+    public Contrato(int id, String fecDesde, String fecHasta, double precio, Inquilino inquilino1, Inmueble inmueble1) {
+        this.id = id;
+        this.fecDesde = fecDesde;
+        this.fecHasta = fecHasta;
+        this.precio = precio;
+        this.inquilino1 = inquilino1;
+        this.inmueble1 = inmueble1;
+    }
+
+    public void setInquilino1(Inquilino inquilino1) {
+        this.inquilino1 = inquilino1;
+    }
+
+    public Inmueble getInmueble1() {
+        return inmueble1;
+    }
+
+    public void setInmueble1(Inmueble inmueble1) {
+        this.inmueble1 = inmueble1;
     }
 
     @Override
     public String toString() {
         return "Contrato{" +
                 "id=" + id +
-                ", fechaInicio='" + fechaInicio + '\'' +
-                ", fechaFin='" + fechaFin + '\'' +
+                ", fecDesde='" + fecDesde + '\'' +
+                ", fecHasta='" + fecHasta + '\'' +
                 ", precio=" + precio +
-                ", inquilino=" + inquilino +
-                ", inmueble=" + inmueble +
+                ", inquilino1=" + inquilino1 +
+                ", inmueble1=" + inmueble1 +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

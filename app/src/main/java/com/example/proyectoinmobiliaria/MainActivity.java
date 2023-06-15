@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectoinmobiliaria.model.Propietario;
-import com.example.proyectoinmobiliaria.resource.ApiClient;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private MainActivityViewModel vm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        vm = new MainActivityViewModel(getApplication());
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -42,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home)
                 .setOpenableLayout(drawer)
@@ -54,15 +53,22 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewnom = headerView.findViewById(R.id.tvNombre);
         TextView textViewape = headerView.findViewById(R.id.tvMail);
 
-        Propietario usuarioActual = ApiClient.getApi().obtenerUsuarioActual();
-        if (usuarioActual != null) {
-            imageView.setImageResource(usuarioActual.getImagen());
-            textViewnom.setText(usuarioActual.getNombre()+" "+usuarioActual.getApellido());
-            textViewape.setText(usuarioActual.getEmail());
-        }
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        vm.obtenerDatosUsuario();
+        vm.getUsuarioLiveData().observe(this, new Observer<Propietario>() {
+            @Override
+            public void onChanged(Propietario usuario) {
+                if (usuario != null) {
+                    // Mostrar los datos en los TextView correspondientes
+                    textViewnom.setText(usuario.getNombre());
+                    textViewape.setText(usuario.getEmail());
+                    imageView.setImageResource(usuario.getImagen());
+                }
+            }
+        });
     }
 
     @Override

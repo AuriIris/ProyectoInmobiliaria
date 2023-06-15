@@ -54,11 +54,11 @@ public class DetalleContratoFragment extends Fragment {
             try {
                 Log.d("ver2", contrato.toString());
                     tvId.setText("ID: " + String.valueOf(contrato.getId()));
-                    tvFechaInicio.setText("Fecha De Inicio: " + contrato.getFechaInicio());
-                    tvFechaFin.setText("Fecha Final: " + contrato.getFechaFin());
+                    tvFechaInicio.setText("Fecha De Inicio: " + contrato.getFecDesde());
+                    tvFechaFin.setText("Fecha Final: " + contrato.getFecHasta());
                     tvPrecio.setText("Precio: " + String.valueOf(contrato.getPrecio()));
-                    tvInquilino.setText("Inquilino: " + contrato.getInquilino().toString());
-                    tvInmueble.setText("Inmueble: " + contrato.getInmueble().getDireccion());
+                    tvInquilino.setText("Inquilino: " + contrato.getInquilino1().toString());
+                    tvInmueble.setText("Inmueble: " + contrato.getInmueble1().getDireccion());
 
             } catch (NullPointerException e) {
                 e.printStackTrace();

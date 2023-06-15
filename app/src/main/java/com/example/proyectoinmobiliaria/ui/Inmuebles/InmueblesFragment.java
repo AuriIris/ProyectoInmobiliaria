@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.proyectoinmobiliaria.R;
+import com.example.proyectoinmobiliaria.model.Contrato;
 import com.example.proyectoinmobiliaria.model.Inmueble;
 
 import java.util.ArrayList;
@@ -57,11 +58,10 @@ public class InmueblesFragment extends Fragment implements InmueblesAdapter.OnIt
         recyclerView.setAdapter(inmueblesAdapter);
 
         inmueblesViewModel = new ViewModelProvider(this).get(InmueblesViewModel.class);
-        inmueblesViewModel.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
+        inmueblesViewModel.getInmuebles().observe(getViewLifecycleOwner(), new Observer<List<Contrato>>() {
             @Override
-            public void onChanged(List<Inmueble> inmuebles) {
+            public void onChanged(List<Contrato> inmuebles) {
 
-                Log.d("Inmuebles", inmuebles.toString());
                 inmueblesAdapter.setInmuebles(inmuebles);
             }
         });

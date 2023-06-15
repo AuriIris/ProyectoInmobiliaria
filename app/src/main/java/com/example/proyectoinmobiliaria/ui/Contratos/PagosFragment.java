@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -73,14 +74,19 @@ public class PagosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        pagosViewModel.getPagos().observe(getViewLifecycleOwner(), new Observer<List<Pago>>() {
-            @Override
-            public void onChanged(List<Pago> pagos) {
-                Log.d("ver4", pagos.toString());
-                pagoAdapter.setPagos(pagos);
-            }
-        });
-        Log.d("verContrato1", contrato+"");
-        pagosViewModel.fetchPagos(contrato);
+        try {
+            pagosViewModel.getPagos().observe(getViewLifecycleOwner(), new Observer<List<Pago>>() {
+                @Override
+                public void onChanged(List<Pago> pagos) {
+                    Log.d("ver4", pagos.toString());
+                    pagoAdapter.setPagos(pagos);
+                }
+            });
+            Log.d("verContrato1", contrato+"");
+            pagosViewModel.fetchPagos(contrato);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "Este contrato no tiene pagos", Toast.LENGTH_SHORT).show();
+        }
     }
 }

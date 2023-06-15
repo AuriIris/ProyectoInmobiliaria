@@ -79,8 +79,8 @@ public Propietario login(String mail, final String password){
     public ArrayList<Inmueble> obtenerPropiedadesAlquiladas() {
         ArrayList<Inmueble> temp = new ArrayList<>();
         for (Contrato contrato : contratos) {
-            if (contrato.getInmueble().getPropietario().equals(usuarioActual)) {
-                temp.add(contrato.getInmueble());
+            if (contrato.getInmueble1().getPropietario().equals(usuarioActual)) {
+                temp.add(contrato.getInmueble1());
             }
         }
         return temp;
@@ -91,7 +91,7 @@ public Propietario login(String mail, final String password){
     public Contrato obtenerContratoVigente(Inmueble inmueble){
 
         for(Contrato contrato:contratos){
-            if(contrato.getInmueble().equals(inmueble)){
+            if(contrato.getInmueble1().equals(inmueble)){
                 return contrato;
             }
         }
@@ -101,8 +101,8 @@ public Propietario login(String mail, final String password){
     //Dado un inmueble, retorna el inquilino del ultimo contrato activo de ese inmueble.
     public Inquilino obtenerInquilino(Inmueble inmueble){
         for(Contrato contrato:contratos){
-            if(contrato.getInmueble().equals(inmueble)){
-                return contrato.getInquilino();
+            if(contrato.getInmueble1().equals(inmueble)){
+                return contrato.getInquilino1();
             }
         }
         return null;
@@ -142,8 +142,8 @@ public Propietario login(String mail, final String password){
     private void cargaDatos(){
 
         //Propietarios
-        Propietario juan=new Propietario(1,23492012L,"Juan","Perez","juan@mail.com","123","2664553447", R.drawable.juan);
-        Propietario sonia=new Propietario(2,17495869L,"Sonia","Lucero","sonia@mail.com","123","266485417",R.drawable.sonia);
+        Propietario juan=new Propietario(1,"23492012L","Juan","Perez","juan@mail.com","123","2664553447", R.drawable.juan);
+        Propietario sonia=new Propietario(2,"17495869L","Sonia","Lucero","sonia@mail.com","123","266485417",R.drawable.sonia);
         propietarios.add(juan);
         propietarios.add(sonia);
 
